@@ -1,6 +1,5 @@
 import {
   Box,
-  Drawer,
   AppBar,
   Toolbar,
   IconButton,
@@ -13,6 +12,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import SearchIcon from "@mui/icons-material/Search";
 import theme from "../mui/theme";
 import { useApp } from "../Hook/useApp";
+import Navbar from "./Navbar";
 
 const Header = () => {
   const { mobileOpen, handleDrawerToggle, categories, drawer } = useApp();
@@ -58,25 +58,12 @@ const Header = () => {
               ),
             }}
           ></TextField>
-          <Box component="nav">
-            <Drawer
-              variant="temporary"
-              open={mobileOpen}
-              onClose={handleDrawerToggle}
-              ModalProps={{
-                keepMounted: true,
-              }}
-              sx={{
-                display: { xs: "block", sm: "none" },
-                "& .MuiDrawer-paper": {
-                  boxSizing: "border-box",
-                  width: drawerWidth,
-                },
-              }}
-            >
-              {drawer}
-            </Drawer>
-          </Box>
+          <Navbar
+            handleDrawerToggle={handleDrawerToggle}
+            mobileOpen={mobileOpen}
+            drawer={drawer}
+            drawerWidth={drawerWidth}
+          />
         </Toolbar>
       </AppBar>
     </ThemeProvider>
