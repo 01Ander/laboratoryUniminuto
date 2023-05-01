@@ -6,8 +6,7 @@ const SearchBar = () => {
     <TextField
       sx={{
         m: 1,
-        width: "100%",
-        maxWidth: "240px",
+        width: { xs: "100%", sm: "240px" },
       }}
       InputProps={{
         endAdornment: (
