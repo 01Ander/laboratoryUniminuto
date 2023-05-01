@@ -6,13 +6,12 @@ import {
   Button,
   ThemeProvider,
   Typography,
-  TextField,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
-import SearchIcon from "@mui/icons-material/Search";
 import theme from "../mui/theme";
-import { useApp } from "../Hook/useApp";
 import Navbar from "./Navbar";
+import SearchBar from "./SearchBar";
+import { useApp } from "../Hook/useApp";
 
 const Header = () => {
   const { mobileOpen, handleDrawerToggle, categories, drawer } = useApp();
@@ -46,18 +45,7 @@ const Header = () => {
               </Button>
             ))}
           </Box>
-          <TextField
-            sx={{
-              my: 1,
-            }}
-            InputProps={{
-              endAdornment: (
-                <IconButton>
-                  <SearchIcon />
-                </IconButton>
-              ),
-            }}
-          ></TextField>
+          <SearchBar />
           <Navbar
             handleDrawerToggle={handleDrawerToggle}
             mobileOpen={mobileOpen}
